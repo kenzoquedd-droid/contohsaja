@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mentawai Reserve | SIKEREI - Warisan Leluhur | Koleksi Alat Tradisional</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0908;
+      font-family: 'Inter', sans-serif;
+      color: #2c2b28;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #e6dfd7; }
+    ::-webkit-scrollbar-thumb { background: #c6a15b; border-radius: 6px; }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .gold-text { color: #b8860b; }
+    .gold-text-light { color: #dbb86b; }
+
+    /* SPLASH SCREEN */
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1e1b16 0%, #080706 100%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s;
+      opacity: 1;
+      visibility: visible;
+    }
+    .splash-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .splash-logo {
+      font-size: 4rem;
+      font-weight: 600;
+      letter-spacing: 6px;
+      color: #ece7e1;
+      font-family: 'Cormorant Garamond', serif;
+      animation: gentlePulse 1.6s infinite alternate;
+    }
+    .splash-logo span { color: #dbb86b; }
+    .splash-text {
+      margin-top: 28px;
+      color: #dbb86b;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+    @keyframes gentlePulse {
+      0% { opacity: 0.5; transform: scale(0.96); text-shadow: 0 0 0px rgba(219,184,107,0);}
+      100% { opacity: 1; transform: scale(1.03); text-shadow: 0 0 18px rgba(219,184,107,0.6);}
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* video hero */
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .video-controls {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      z-index: 20;
+      display: flex;
+      gap: 15px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      padding: 10px 18px;
+      border-radius: 60px;
+      border: 1px solid rgba(219, 184, 107, 0.3);
+    }
+    .ctrl-btn {
+      background: transparent;
+      border: none;
+      color: #ece7e1;
+      font-size: 1.3rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+    .ctrl-btn:hover { background: rgba(219, 184, 107, 0.25); color: #dbb86b; }
+    .btn-luxury {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid #dbb86b;
+      color: #dbb86b;
+      padding: 12px 36px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-luxury:hover {
+      background: #dbb86b;
+      color: #0a0908;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -8px rgba(219,184,107,0.3);
+    }
+
+    /* ABOUT SECTION */
+    .about-section {
+      background: linear-gradient(125deg, #fdf7ef 0%, #f3e9de 100%);
+      padding: 100px 8%;
+      position: relative;
+    }
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 70px;
+      max-width: 1400px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .about-text { flex: 1.2; }
+    .about-text .premium-tag {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #b8860b;
+      border-left: 3px solid #dbb86b;
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+    .about-text h2 {
+      font-size: 3.5rem;
+      color: #2f2419;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .about-text .lead {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #7a684f;
+      border-left: 2px solid #dbb86b;
+      padding-left: 20px;
+      margin: 20px 0;
+    }
+    .description { font-size: 1rem; line-height: 1.7; color: #3e362e; margin-bottom: 1.2rem; }
+    .feature-list { list-style: none; margin-top: 28px; }
+    .feature-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-weight: 500; color: #4a3a2a; }
+    .feature-list i { color: #b8860b; font-size: 1.2rem; width: 28px; }
+
+    .about-images-dual {
+      flex: 1;
+      display: flex;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .img-clip-card {
+      width: 50%;
+      overflow: hidden;
+      border-radius: 30px 12px 30px 12px;
+      transform: skewX(-1deg);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+      border: 1px solid rgba(184,134,11,0.4);
+    }
+    .img-clip-card img { width: 100%; height: 420px; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .img-clip-card:hover { transform: skewX(0deg) translateY(-6px); border-color: #dbb86b; }
+    .img-clip-card:hover img { transform: scale(1.05); }
+    @media (max-width: 900px) {
+      .about-container { flex-direction: column; }
+      .about-images-dual { width: 100%; }
+      .img-clip-card img { height: 280px; }
+    }
+
+    /* EXPERIENCES SECTION */
+    .experiences-section {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 100px 8%;
+      position: relative;
+    }
+    .experiences-section .premium-card {
+      background: rgba(20, 18, 16, 0.75);
+      backdrop-filter: blur(12px);
+      color: #f5efea;
+      border: 1px solid rgba(219,184,107,0.4);
+    }
+    .experiences-section .premium-card i { color: #dbb86b; }
+    .experiences-section .premium-card:hover {
+      background: rgba(219,184,107,0.2);
+      backdrop-filter: blur(16px);
+      border-color: #dbb86b;
+    }
+
+    /* EXPLORE SECTION */
+    .explore-section {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.75)), url('https://images.pexels.com/photos/2156898/pexels-photo-2156898.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 80px 5%;
+    }
+    .explore-section .section-title h2,
+    .explore-section .section-title p { color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+    .explore-section .section-title .divider { background: #dbb86b; }
+
+    .horizontal-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 20px;
+      scrollbar-width: thin;
+    }
+    .scroll-wrapper {
+      display: inline-flex;
+      gap: 28px;
+      padding: 15px 20px;
+    }
+    .island-card {
+      position: relative;
+      width: 320px;
+      border-radius: 32px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #1a1612;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+    }
+    .island-card:hover { transform: translateY(-8px) scale(1.02); }
+    .island-img { width: 100%; height: 260px; object-fit: cover; filter: blur(2px); transition: 0.4s; }
+    .island-card:hover .island-img { filter: blur(0); transform: scale(1.02); }
+    .island-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent);
+      padding: 20px;
+      text-align: center;
+    }
+    .island-name {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: #f7e9cf;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 40px;
+    }
+
+    /* SUITE SECTION */
+    .suites-premium {
+      background: #ffffff;
+      padding: 100px 8%;
+      position: relative;
+    }
+    .suites-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .suites-header h2 {
+      font-size: 3rem;
+      color: #1a1a1a;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: -0.02em;
+    }
+    .suites-header .divider {
+      width: 80px;
+      height: 3px;
+      background: #b8860b;
+      margin: 20px auto;
+    }
+    .suites-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .suite-card {
+      background: #faf9f7;
+      border-radius: 28px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 15px 35px -12px rgba(0,0,0,0.1);
+      border: 1px solid #e8e2d9;
+      position: relative;
+    }
+    .suite-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
+      border-color: #b8860b;
+    }
+    .suite-img {
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+    .suite-card:hover .suite-img { transform: scale(1.05); }
+    .suite-info {
+      padding: 24px 20px 28px;
+      background: #ffffff;
+    }
+    .suite-info h3 {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: #1e2a2a;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .suite-info .suite-price {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #b8860b;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .suite-card:nth-child(1) .suite-img { height: 280px; }
+    .suite-card:nth-child(2) .suite-img { height: 320px; }
+    .suite-card:nth-child(3) .suite-img { height: 260px; }
+    .suite-card:nth-child(4) .suite-img { height: 300px; }
+    @media (max-width: 1100px) {
+      .suites-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+    @media (max-width: 680px) {
+      .suites-grid { grid-template-columns: 1fr; }
+    }
+
+    /* SIKEREI SECTION */
+    .sikerei-premium {
+      background: #0f0e0c;
+      padding: 100px 6%;
+      position: relative;
+      overflow: hidden;
+    }
+    .sikerei-container {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      align-items: center;
+    }
+    .sikerei-text {
+      flex: 1;
+      color: #f2ece4;
+      padding-right: 20px;
+    }
+    .rotating-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c9a550, #8b5a2b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinLogo 8s linear infinite;
+      box-shadow: 0 0 20px rgba(219,184,107,0.5);
+      border: 2px solid #e9c67a;
+    }
+    .rotating-logo img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    @keyframes spinLogo {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .sikerei-text h2 {
+      font-size: 3.8rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: #e7dbbc;
+      line-height: 1.2;
+      margin: 16px 0 20px 0;
+    }
+    .sikerei-text h2 span { color: #c9a550; border-bottom: 2px solid #c9a550; }
+    .sikerei-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #cdc2b2;
+      margin-bottom: 30px;
+    }
+    .sikerei-gallery {
+      flex: 1;
+      max-width: 700px;
+      position: relative;
+    }
+    .horizontal-scroll-petak {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: thin;
+      padding-bottom: 15px;
+      cursor: grab;
+    }
+    .petak-wrapper {
+      display: inline-flex;
+      gap: 24px;
+      padding: 15px 10px;
+    }
+    .sikerei-petak-card {
+      width: 280px;
+      flex-shrink: 0;
+      background: #1c1814;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s;
+      border: 1px solid rgba(219,184,107,0.4);
+    }
+    .sikerei-petak-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .petak-caption {
+      padding: 16px 18px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #e2cba4;
+    }
+
+    /* GALLERY 3D */
+    .gallery-3d-section {
+      background: #fffaf5;
+      padding: 100px 8%;
+    }
+    .gallery-grid-3d {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .gallery-item-3d {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+      background: #1a1612;
+    }
+    .gallery-item-3d img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item-3d:hover {
+      transform: translateY(-12px) rotateX(4deg) scale(1.02);
+    }
+    .btn-secondary {
+      background: #b8860b;
+      color: #fff;
+      border: none;
+      padding: 14px 38px;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      border-radius: 50px;
+      transition: 0.3s;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-secondary:hover { background: #9b6f0a; transform: scale(1.02); }
+
+    /* VIDEO COLLECTION - UKURAN KECIL */
+    .video-collection {
+      background: #f7f2ea;
+      padding: 90px 8%;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 50px 0 30px;
+    }
+    .video-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 25px -8px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease;
+      border: 1px solid #e2d5c4;
+    }
+    .video-card:hover { transform: translateY(-5px); }
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+    }
+    .video-caption {
+      padding: 10px 12px;
+      font-weight: 500;
+      font-size: 0.75rem;
+      color: #3e2c1c;
+      background: #fefcf8;
+    }
+    .btn-more-videos { text-align: center; margin-top: 20px; }
+    .hidden-videos { display: none; }
+
+    /* TRADITIONAL TOOLS - UKURAN KECIL */
+    .tools-heritage {
+      background: #1e1b16;
+      padding: 80px 6%;
+    }
+    .tools-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .tools-header h2 {
+      font-size: 2.8rem;
+      color: #ecd9b4;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .tools-header .divider {
+      width: 80px;
+      height: 2px;
+      background: #dbb86b;
+      margin: 18px auto;
+    }
+    .tools-masonry {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 24px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .tool-3d-card {
+      background: #2a241e;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.5);
+      border: 1px solid rgba(219,184,107,0.3);
+    }
+    .tool-3d-card:hover {
+      transform: translateY(-6px);
+      border-color: #dbb86b;
+    }
+    .tool-img-wrapper {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #3d3328, #1f1b16);
+      padding: 16px;
+    }
+    .tool-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
+    }
+    .tool-info {
+      padding: 14px 14px 18px;
+      background: linear-gradient(145deg, #1f1b16, #17130f);
+      color: #f2e5d2;
+    }
+    .tool-name {
+      font-size: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: #e8c68b;
+      margin-bottom: 6px;
+      border-left: 3px solid #dbb86b;
+      padding-left: 10px;
+    }
+    .tool-meaning {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #c6a15b;
+      margin-bottom: 6px;
+    }
+    .tool-function {
+      font-size: 0.7rem;
+      line-height: 1.4;
+      color: #cfc2ae;
+      border-top: 1px dashed rgba(219,184,107,0.3);
+      margin-top: 8px;
+      padding-top: 8px;
+    }
+    .load-more-tools { text-align: center; margin-top: 48px; }
+
+    /* DEVELOPER SECTION - ERUT MUHAMMAD THALIF */
+    .developer-section {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1308 100%);
+      padding: 80px 8%;
+      position: relative;
+      overflow: hidden;
+    }
+    .developer-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(219,184,107,0.08) 0%, transparent 70%);
+      animation: rotateGlow 20s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .developer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+    }
+    .developer-photo {
+      position: relative;
+      width: 280px;
+      height: 280px;
+    }
+    .developer-btn {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      animation: gentlePulseCircle 2s infinite ease-in-out;
+      box-shadow: 0 0 20px rgba(219,184,107,0.3);
+      position: relative;
+    }
+    @keyframes gentlePulseCircle {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(219,184,107,0.4); }
+      70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(219,184,107,0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(219,184,107,0); }
+    }
+    .developer-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .developer-btn:hover {
+      transform: scale(1.05);
+      animation: none;
+      box-shadow: 0 0 35px 12px rgba(219,184,107,0.8);
+    }
+    .developer-btn:hover img {
+      transform: scale(1.08);
+    }
+    .developer-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(219,184,107,0.6) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .developer-btn:hover::after {
+      opacity: 1;
+      animation: burstLight 0.6s ease-out;
+    }
+    @keyframes burstLight {
+      0% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 0.8; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(1.5); }
+    }
+    .developer-info {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+      animation: floatText 3s ease-in-out infinite;
+    }
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .developer-info h3 {
+      font-size: 2.5rem;
+      color: #e8c68b;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    .developer-info .developer-role {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #dbb86b;
+      margin-bottom: 20px;
+      display: inline-block;
+      border-bottom: 2px solid #dbb86b;
+      padding-bottom: 8px;
+    }
+    .developer-bio {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #cdc2b2;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    .developer-social {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .developer-social a {
+      color: #dbb86b;
+      font-size: 1.8rem;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .developer-social a:hover {
+      transform: translateY(-5px) rotate(5deg);
+      color: #ffd966;
+      text-shadow: 0 0 12px rgba(219,184,107,0.8);
+    }
+    @keyframes shine {
+      0% { background-position: -100%; }
+      100% { background-position: 200%; }
+    }
+
+    .map-section {
+      background: #0f0e0c;
+      padding: 80px 8%;
+      color: #ece7e1;
+      text-align: center;
+    }
+    .map-container {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 3px solid #dbb86b;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.4s;
+    }
+    .navbar.scrolled {
+      background: rgba(10, 9, 8, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 0.8rem 5%;
+      border-bottom: 1px solid rgba(219,184,107,0.3);
+    }
+    .logo { font-size: 1.8rem; font-weight: 600; color: #ece7e1; }
+    .logo span { color: #dbb86b; }
+    .nav-links a { color: #ece7e1; margin-left: 2rem; text-decoration: none; font-weight: 500; position: relative; }
+    .nav-links a:after {
+      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 1.5px; background: #dbb86b; transition: 0.3s;
+    }
+    .nav-links a:hover:after { width: 100%; }
+    .mobile-menu { display: none; font-size: 1.6rem; cursor: pointer; color: #ece7e1; }
+    .reveal { opacity: 0; transform: translateY(35px); transition: all 1s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    footer { background: #060504; border-top: 1px solid rgba(219,184,107,0.2); color: #b7ae9f; text-align: center; padding: 40px; }
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed; top: 70px; left: -100%; width: 80%; height: 100vh;
+        background: #0f0e0cef; backdrop-filter: blur(20px); flex-direction: column;
+        padding: 3rem 2rem; transition: 0.4s; display: flex; gap: 2rem;
+      }
+      .nav-links.active { left: 0; }
+      .mobile-menu { display: block; }
+      .gallery-grid-3d { grid-template-columns: repeat(2, 1fr); }
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 550px) {
+      .gallery-grid-3d { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="splashScreen" class="splash-screen">
+  <div class="splash-logo">MENTAWAI<span>RESERVE</span></div>
+  <div class="splash-text">Membuka gerbang surga tersembunyi</div>
+  <div style="margin-top: 40px; width: 40px; height: 40px; border: 2px solid rgba(219,184,107,0.4); border-top-color: #dbb86b; border-radius: 50%; animation: spin 1s infinite;"></div>
+</div>
+<div id="mainContent" style="opacity:0; transition: opacity 1.4s ease;">
+<nav class="navbar" id="navbar">
+  <div class="logo">MENTAWAI<span>RESERVE</span></div>
+  <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">BERANDA</a><a href="#about">TENTANG</a><a href="#experiences">PENGALAMAN</a><a href="#explore">JELAJAHI</a><a href="#suites">SUITE</a><a href="#sikerei-section">SIKEREI</a><a href="#gallery-3d">GALERI</a><a href="#video-collection">VIDEO</a><a href="#tools-collection">ALAT</a><a href="#developer">PENGEMBANG</a><a href="#map-location">MAPS</a>
+  </div>
+</nav>
+<section id="home" class="hero"><video id="heroVideo" class="hero-video" autoplay loop playsinline><source src="videolatar2.mp4" type="video/mp4"><source src="videolatar2.mp4" type="video/mp4"></video><div class="hero-overlay"></div><div class="hero-content reveal"><p class="gold-text-light" style="letter-spacing: 4px;">SURGA TERSEMBUNYI KEPULAUAN</p><h1 style="font-size: 5rem; margin: 1rem 0; color:#fff;">Pulau Mentawai</h1><a href="#about" class="btn-luxury">MULAI PERJALANAN</a></div><div class="video-controls"><button id="toggleVideoBtn" class="ctrl-btn"><i class="fas fa-pause"></i></button><button id="toggleSoundBtn" class="ctrl-btn"><i class="fas fa-volume-up"></i></button></div></section>
+
+<section id="about" class="about-section"><div class="about-container reveal"><div class="about-text"><div class="premium-tag">— Warisan Leluhur —</div><h2>Harmoni Jiwa <br>Alam Mentawai</h2><div class="lead">“Tempat di mana kearifan lokal bertemu standar layanan internasional”</div><p class="description">Tersembunyi di jantung kepulauan Mentawai, Reserve kami bukan sekadar resor mewah — melainkan gerbang menuju budaya asli yang dilindungi dan keindahan alam yang masih perawan.</p><ul class="feature-list"><li><i class="fas fa-leaf"></i> Ekowisata premium & konservasi terumbu karang</li><li><i class="fas fa-hand-sparkles"></i> Ritual penyembuhan khas Mentawai oleh tetua adat</li><li><i class="fas fa-swimmer"></i> Akses eksklusif ke 5 titik surfing kelas dunia</li></ul></div><div class="about-images-dual" id="dualImageContainer"><div class="img-clip-card"><img id="leftImg" src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=800"></div><div class="img-clip-card"><img id="rightImg" src="https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=800"></div></div></div></section>
+
+<section id="experiences" class="experiences-section"><div class="reveal" style="text-align:center; margin-bottom:60px;"><h2 style="font-size:3rem; color:#fff;">Pengalaman Ikonik</h2><div style="width:80px; height:2px; background:#dbb86b; margin:20px auto;"></div></div><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:40px;"><div class="premium-card reveal" style="padding:40px 28px; border-radius:28px; text-align:center;"><i class="fas fa-water" style="font-size:3rem;"></i><h3 style="font-size:1.8rem; margin-top:15px;">Surfing Kelas Dunia</h3><p>Kapal pesiar pribadi ke ombak legendaris</p></div><div class="premium-card reveal" style="padding:40px 28px; border-radius:28px; text-align:center;"><i class="fas fa-spa" style="font-size:3rem;"></i><h3 style="font-size:1.8rem; margin-top:15px;">Ritual Penyembuhan</h3><p>Dukun Sikerei kuno & paviliun spa tepi laut</p></div><div class="premium-card reveal" style="padding:40px 28px; border-radius:28px; text-align:center;"><i class="fas fa-utensils" style="font-size:3rem;"></i><h3 style="font-size:1.8rem; margin-top:15px;">Atelier Gastronomi</h3><p>Chef bintang Michelin memadukan rempah Mentawai</p></div></div></section>
+
+<section id="explore" class="explore-section"><div class="section-title" style="text-align:center;"><h2 style="font-size:3rem; color:#fff;">Kepulauan Mentawai</h2><div class="divider" style="width:80px; height:2px; background:#dbb86b; margin:16px auto;"></div></div><div class="horizontal-scroll"><div class="scroll-wrapper" id="scrollWrapper"></div></div></section>
+
+<section id="suites" class="suites-premium"><div class="suites-header reveal"><h2>Koleksi Kediaman Eksklusif</h2><div class="divider"></div></div><div class="suites-grid" id="suitesGrid"></div></section>
+
+<section id="sikerei-section" class="sikerei-premium"><div class="sikerei-container"><div class="sikerei-text reveal"><div class="rotating-logo"><img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Sikerei Logo"></div><div class="premium-badge"><i class="fas fa-hand-sparkles"></i> Warisan Leluhur</div><h2>SIKEREI: <span>Penyembuh Suci Mentawai</span></h2><p class="sikerei-desc">Sikerei adalah dukun tradisional masyarakat adat Mentawai yang dihormati sebagai pemimpin spiritual, tabib, dan penjaga keseimbangan alam.</p><div class="sikerei-quote">“Dalam tiap tetes ramuan dan kidung kuno, tersimpan filosofi hidup yang menyatu dengan rimba dan samudra.”</div></div><div class="sikerei-gallery reveal"><div class="horizontal-scroll-petak" id="horizontalPetakScroll"><div class="petak-wrapper" id="petakWrapper"></div></div></div></div></section>
+
+<section id="gallery-3d" class="gallery-3d-section"><div style="text-align:center;"><h2 style="font-size:3rem;">Kronik Visual 3D</h2><div style="width:80px; height:2px; background:#b8860b; margin:20px auto;"></div></div><div id="gallery3dGrid" class="gallery-grid-3d"></div><div class="btn-gallery-more"><button id="loadMoreGalleryBtn" class="btn-secondary"><i class="fas fa-images"></i> Tampilkan Gambar Lainnya (4)</button></div></section>
+
+<!-- ALAT TRADISIONAL UKURAN KECIL + TOMBOL 4 ALAT LAINNYA -->
+<section id="tools-collection" class="tools-heritage">
+  <div class="tools-header reveal">
+    <h2><i class="fas fa-tools gold-text"></i> Alat Tradisional Mentawai</h2>
+    <div class="divider"></div>
+    <p>Warisan leluhur — koleksi alat adat Mentawai. Sentuh untuk getaran kearifan lokal.</p>
+  </div>
+  <div id="toolsMasonryGrid" class="tools-masonry"></div>
+  <div class="load-more-tools"><button id="loadMoreToolsBtn" class="btn-luxury" style="background:#b8860b; color:white; border:none;"><i class="fas fa-plus-circle"></i> Tampilkan 4 Alat Lainnya</button></div>
+</section>
+
+<!-- KOLEKSI VIDEO UKURAN KECIL -->
+<section id="video-collection" class="video-collection"><div style="text-align:center;"><h2 style="font-size:2.8rem; font-family:'Cormorant Garamond';">Koleksi Sinematik</h2><div style="width:80px; height:2px; background:#b8860b; margin:20px auto;"></div></div><div id="mainVideoGrid" class="video-grid"></div><div class="btn-more-videos"><button id="toggleMoreVideos" class="btn-luxury" style="background:#b8860b; color:white;"><i class="fas fa-plus-circle"></i> Tampilkan 4 Video Lainnya</button></div><div id="extraVideosContainer" class="hidden-videos"></div></section>
+
+<!-- DEVELOPER SECTION - ERUT MUHAMMAD THALIF -->
+<section id="developer" class="developer-section">
+  <div class="developer-container">
+    <div class="developer-photo">
+      <div class="developer-btn">
+        <img src="profil.jpg" alt="Erut Muhammad Thalif">
+      </div>
+    </div>
+    <div class="developer-info">
+      <h3>Erut Muhammad Thalif</h3>
+      <div class="developer-role"><i class="fas fa-code"></i> Fullstack Developer & UI/UX Architect</div>
+      <p class="developer-bio">Membangun pengalaman digital yang memukau dengan harmoni antara teknologi dan kearifan lokal. Terinspirasi oleh keindahan alam Mentawai, Thalif menghadirkan antarmuka yang hidup dan bermakna.</p>
+      <div class="developer-social">
+        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="map-location" class="map-section"><h2 style="font-size:2.8rem;">Lokasi Kepulauan Mentawai</h2><div style="width:80px; height:2px; background:#dbb86b; margin:20px auto;"></div><div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510280.0990535315!2d98.93531974999999!3d-1.86729285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fcf9e9b3f2a7b4b%3A0x3b5c8b9a7f2e6d1!2sMentawai%20Islands%20Regency!5e0!3m2!1sen!2sid!4v1712134567890!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe></div></section>
+
+<section id="contact" style="padding:100px 8%; background:#f0e7db;"><div class="reveal" style="display:flex; flex-wrap:wrap; gap:50px;"><div style="flex:1"><h2 style="font-size:2.8rem;">Akses Concierge</h2><div style="width:60px; height:2px; background:#b8860b; margin:20px 0;"></div><p>Kurator perjalanan kami siap merencanakan odissey Mentawai Anda.</p><div><i class="fas fa-phone-alt gold-text"></i> +62 811 1234 5678</div><div><i class="fas fa-envelope gold-text"></i> reserve@mentawaiescape.com</div></div><div style="flex:1.5"><form id="premiumForm"><input type="text" placeholder="Nama lengkap" required style="width:100%; padding:16px; margin-bottom:20px;"><input type="email" placeholder="Email address" required style="width:100%; padding:16px; margin-bottom:20px;"><textarea rows="4" placeholder="Permintaan khusus..." style="width:100%; padding:16px;"></textarea><button type="submit" class="btn-luxury" style="width:100%; background:#b8860b; color:#fff;">KIRIM PERMINTAAN</button><p id="formStatus"></p></form></div></div></section>
+<footer><p>© 2025 MENTAWAI RESERVE — Dikembangkan oleh Erut Muhammad Thalif</p></footer>
+</div>
+
+<script>
+  // DATA ALAT TRADISIONAL (10 awal + 4 tambahan)
+  const baseTools = [
+    { name: "Toluk", meaning: "Parang Sakral", function: "Memotong hasil hutan, ritual adat", icon: "https://cdn-icons-png.flaticon.com/512/3240/3240823.png" },
+    { name: "Kulit Kayu", meaning: "Kain Tradisional", function: "Pakaian adat dari kulit kayu", icon: "https://cdn-icons-png.flaticon.com/512/1055/1055687.png" },
+    { name: "Tatou", meaning: "Alat Tato", function: "Membuat tato tradisional", icon: "https://cdn-icons-png.flaticon.com/512/2917/2917995.png" },
+    { name: "Sagat", meaning: "Tombak Berburu", function: "Berburu babi & kera", icon: "https://cdn-icons-png.flaticon.com/512/4795/4795216.png" },
+    { name: "Bua", meaning: "Anyaman Nipah", function: "Tikar & wadah", icon: "https://cdn-icons-png.flaticon.com/512/2972/2972062.png" },
+    { name: "Simatak", meaning: "Kapak Batu", function: "Membelah kayu", icon: "https://cdn-icons-png.flaticon.com/512/2917/2917762.png" },
+    { name: "Korok", meaning: "Keranjang Rotan", function: "Mengangkut hasil kebun", icon: "https://cdn-icons-png.flaticon.com/512/3514/3514495.png" },
+    { name: "Sipattung", meaning: "Lesung Kayu", function: "Menumbuk sagu", icon: "https://cdn-icons-png.flaticon.com/512/3665/3665904.png" },
+    { name: "Panggal", meaning: "Perangkap Ikan", function: "Menangkap ikan di sungai", icon: "https://cdn-icons-png.flaticon.com/512/3095/3095139.png" },
+    { name: "Lepa", meaning: "Perahu Cadik", function: "Transportasi antar pulau", icon: "https://cdn-icons-png.flaticon.com/512/3095/3095128.png" }
+  ];
+  const extraTools = [
+    { name: "Sikerei Gantang", meaning: "Tempat Obat", function: "Menyimpan ramuan sikerei", icon: "https://cdn-icons-png.flaticon.com/512/2945/2945913.png" },
+    { name: "Sumpitan", meaning: "Sumpit", function: "Berburu burung & tupai", icon: "https://cdn-icons-png.flaticon.com/512/2700/2700524.png" },
+    { name: "Keris Mentawai", meaning: "Keris Pusaka", function: "Simbol keberanian", icon: "https://cdn-icons-png.flaticon.com/512/4249/4249363.png" },
+    { name: "Gong Kecil", meaning: "Alat Musik", function: "Iringan ritual adat", icon: "https://cdn-icons-png.flaticon.com/512/1185/1185909.png" }
+  ];
+  let currentTools = [...baseTools];
+  function renderTools() {
+    const container = document.getElementById('toolsMasonryGrid');
+    if(!container) return;
+    container.innerHTML = '';
+    currentTools.forEach(tool => {
+      const card = document.createElement('div');
+      card.className = 'tool-3d-card';
+      card.innerHTML = `<div class="tool-img-wrapper"><img class="tool-img" src="${tool.icon}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1055/1055687.png'"></div><div class="tool-info"><div class="tool-name">${tool.name}</div><div class="tool-meaning"><i class="fas fa-feather-alt"></i> ${tool.meaning}</div><div class="tool-function"><i class="fas fa-hands-helping"></i> ${tool.function}</div></div>`;
+      container.appendChild(card);
+    });
+  }
+  renderTools();
+  let extraAdded = false;
+  document.getElementById('loadMoreToolsBtn')?.addEventListener('click', () => {
+    if(!extraAdded) {
+      currentTools = [...currentTools, ...extraTools];
+      renderTools();
+      document.getElementById('loadMoreToolsBtn').innerHTML = '<i class="fas fa-check-circle"></i> 14 Alat Ditampilkan';
+      extraAdded = true;
+    } else alert("Semua alat tradisional sudah ditampilkan.");
+  });
+
+  // VIDEO
+  const mainVideos = [{ title: "Pesona Mentawai", id: "y0FZg7qUjV0" },{ title: "Sikerei: Tabib", id: "dQw4w9WgXcQ" },{ title: "Budaya & Tato", id: "jNQXAC9IVRw" },{ title: "Ritual Adat", id: "ZbZSe6N_BXs" }];
+  const extraVideos = [{ title: "Keindahan Laut", id: "Vb3IMTJjzqU" },{ title: "Upacara Pultukat", id: "kXYiU_JCYtU" },{ title: "Ekspedisi Siberut", id: "2Vv-BfRqS5w" },{ title: "Warisan Leluhur", id: "fJ9rUzIMcZQ" }];
+  function renderVideoGrid(containerId, videos) {
+    const container = document.getElementById(containerId);
+    if(!container) return;
+    container.innerHTML = '';
+    videos.forEach(v => {
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?rel=0" allowfullscreen></iframe><div class="video-caption"><i class="fab fa-youtube gold-text"></i> ${v.title}</div>`;
+      container.appendChild(card);
+    });
+  }
+  renderVideoGrid('mainVideoGrid', mainVideos);
+  const extraContainer = document.getElementById('extraVideosContainer');
+  let extraVideoShown = false;
+  document.getElementById('toggleMoreVideos')?.addEventListener('click', () => {
+    if(!extraVideoShown) {
+      extraContainer.classList.remove('hidden-videos');
+      extraContainer.classList.add('video-grid');
+      extraContainer.style.display = 'grid';
+      renderVideoGrid('extraVideosContainer', extraVideos);
+      document.getElementById('toggleMoreVideos').innerHTML = '<i class="fas fa-minus-circle"></i> Sembunyikan Video Lainnya';
+      extraVideoShown = true;
+    } else {
+      extraContainer.classList.add('hidden-videos');
+      extraContainer.style.display = 'none';
+      document.getElementById('toggleMoreVideos').innerHTML = '<i class="fas fa-plus-circle"></i> Tampilkan 4 Video Lainnya';
+      extraVideoShown = false;
+    }
+  });
+  extraContainer.classList.add('hidden-videos');
+  extraContainer.style.display = 'none';
+
+  // Sisa script (islands, suites, gallery, etc)
+  const islands = [{ name: "Siberut", img: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg", link: "#" },{ name: "Sipora", img: "https://images.pexels.com/photos/2156898/pexels-photo-2156898.jpeg", link: "#" },{ name: "Pagai Utara", img: "https://images.pexels.com/photos/2372720/pexels-photo-2372720.jpeg", link: "#" },{ name: "Pagai Selatan", img: "https://images.pexels.com/photos/1903702/pexels-photo-1903702.jpeg", link: "#" }];
+  const wrapper = document.getElementById('scrollWrapper');
+  if(wrapper) islands.forEach(i => { const c = document.createElement('div'); c.className='island-card'; c.innerHTML=`<img class="island-img" src="${i.img}"><div class="island-overlay"><div class="island-name">${i.name}</div></div>`; wrapper.appendChild(c); });
+  const suites = [{ name: "Samudra Infinity", price: "mulai $1.890", desc: "Kolam infinity", img: "logo1.png", link: "#" },{ name: "Canopy Loft", price: "mulai $2.250", desc: "Suite dua lantai", img: "logo2.png", link: "#" },{ name: "Laguna Pearl", price: "mulai $1.590", desc: "Langkah dari laguna", img: "logo3.png", link: "#" },{ name: "The Sikerei", price: "mulai $3.200", desc: "Ruang ritual", img: "logo4.png", link: "#" }];
+  const suitesGrid = document.getElementById('suitesGrid');
+  if(suitesGrid) suites.forEach(s => { const card = document.createElement('div'); card.className='suite-card'; card.innerHTML=`<div class="suite-badge">Exclusive</div><img class="suite-img" src="${s.img}" onerror="this.src='https://placehold.co/600x400?text=Mentawai'"><div class="suite-info"><h3>${s.name}</h3><div class="suite-price">${s.price}</div><p class="suite-desc">${s.desc}</p></div>`; suitesGrid.appendChild(card); });
+  const petakItems = [{ img: "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg", title: "Sikerei Rimba" },{ img: "https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg", title: "Ritual Pultukat" },{ img: "https://images.pexels.com/photos/7176183/pexels-photo-7176183.jpeg", title: "Tato Tradisional" },{ img: "https://images.pexels.com/photos/3258077/pexels-photo-3258077.jpeg", title: "Upacara Adat" }];
+  const petakWrap = document.getElementById('petakWrapper');
+  if(petakWrap) petakItems.forEach(p => { const card = document.createElement('div'); card.className='sikerei-petak-card'; card.innerHTML=`<img src="${p.img}"><div class="petak-caption">${p.title}</div>`; petakWrap.appendChild(card); });
+  let galleryBase = ["https://images.pexels.com/photos/2614817/pexels-photo-2614817.jpeg","https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg","https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg","https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg"];
+  let galleryExtra = ["https://images.pexels.com/photos/2661542/pexels-photo-2661542.jpeg","https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg","https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg","https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg"];
+  let galleryItems = [...galleryBase];
+  function renderGallery() { const g = document.getElementById('gallery3dGrid'); if(!g) return; g.innerHTML=''; galleryItems.forEach(src=>{ const d=document.createElement('div'); d.className='gallery-item-3d'; d.innerHTML=`<img src="${src}"><div class="gallery-overlay-3d"><i class="fas fa-expand"></i> Lihat</div>`; g.appendChild(d); }); }
+  renderGallery();
+  document.getElementById('loadMoreGalleryBtn')?.addEventListener('click',()=>{ if(galleryItems.length===4){ galleryItems=[...galleryBase,...galleryExtra]; renderGallery(); document.getElementById('loadMoreGalleryBtn').innerHTML='<i class="fas fa-check-circle"></i> 8 Gambar Tampil'; } else alert('Semua gambar ditampilkan'); });
+  const splash = document.getElementById('splashScreen'); setTimeout(()=>{ splash?.classList.add('fade-out'); setTimeout(()=>{ splash.style.display='none'; document.getElementById('mainContent').style.opacity='1'; },800); },500);
+  const videoHero = document.getElementById('heroVideo'), toggleVid=document.getElementById('toggleVideoBtn'), toggleSnd=document.getElementById('toggleSoundBtn'); let isPlaying=true; toggleVid?.addEventListener('click',()=>{ isPlaying?videoHero.pause():videoHero.play(); isPlaying=!isPlaying; toggleVid.querySelector('i').className=isPlaying?'fas fa-pause':'fas fa-play'; }); toggleSnd?.addEventListener('click',()=>{ videoHero.muted=!videoHero.muted; toggleSnd.querySelector('i').className=videoHero.muted?'fas fa-volume-mute':'fas fa-volume-up'; });
+  const navbar = document.getElementById('navbar'); window.addEventListener('scroll',()=>{ window.scrollY>50?navbar.classList.add('scrolled'):navbar.classList.remove('scrolled'); });
+  document.getElementById('mobileMenuBtn')?.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('active')));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){ e.preventDefault(); const t=document.querySelector(this.getAttribute('href')); t?.scrollIntoView({behavior:'smooth'}); }));
+  const reveals=document.querySelectorAll('.reveal'); function checkReveal(){ reveals.forEach(el=>{ if(el.getBoundingClientRect().top<window.innerHeight-100) el.classList.add('active'); }); } window.addEventListener('scroll',checkReveal); checkReveal();
+  document.getElementById('premiumForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); document.getElementById('formStatus').innerHTML='<span style="color:#b8860b;">✓ Permintaan diterima. Kurator akan merespon.</span>'; e.target.reset(); setTimeout(()=>document.getElementById('formStatus').innerHTML='',5000); });
+</script>
+</body>
+</html>
